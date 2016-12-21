@@ -120,10 +120,10 @@ class RandCropper(RandSampler):
                 if not new_gt_boxes:
                     continue
                 new_gt_boxes = np.array(new_gt_boxes)
-                label = np.lib.pad(new_gt_boxes,
+                new_label = np.lib.pad(new_gt_boxes,
                     ((0, label.shape[0]-new_gt_boxes.shape[0]), (0,0)), \
                     'constant', constant_values=(-1, -1))
-                samples.append((rand_box, label))
+                samples.append((rand_box, new_label))
                 count += 1
         return samples
 
